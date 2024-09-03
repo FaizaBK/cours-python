@@ -1,0 +1,57 @@
+@startuml
+!theme vibrant
+
+Interface Entity {
+    - points_de_vie_max: int
+    - points_attaque: int
+    + attaquer(cible: Entity) : None
+    + reset() : None
+    + bruit() : None
+}
+
+abstract class Monstre {
+    - points_de_vie_max: int
+    - points_attaque: int
+    + attaquer(cible) : None
+    + reset() : None
+    + bruit() : None
+}
+
+class Dragon {
+    - points_de_vie_max: int
+    - points_attaque: int
+    + bruit() : None
+}
+
+class Goblin {
+    + bruit() : None
+}
+
+class Player {
+    - nom: str
+    - niveau: int
+    - inventaire: [Objet]
+    + ajouter_inventaire(objet: Objet, qte: int) : None
+    + utiliser_objet(objet: Objet) : None
+    + level_up() : None
+    + bruit() : None
+}
+
+abstract class Objet {
+    - nom: str
+    + effet(entity: Entity) : None
+}
+
+class SmallPotion {
+    - nom: str
+    + effet(entity: Entity) : None
+}
+
+Dragon --|> Monstre
+Goblin --|> Monstre
+Monstre --|> Entity
+Objet --|> Entity
+Player --|> Entity
+Objet <|-- SmallPotion
+
+@enduml

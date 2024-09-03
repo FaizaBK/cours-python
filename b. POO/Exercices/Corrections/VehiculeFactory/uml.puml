@@ -1,0 +1,32 @@
+@startuml
+!theme vibrant
+
+class Vehicule {
+  - marque: str
+  - modele: str
+  - annee: int
+  - vitesse: int
+  +demarrer(): str
+  +accelerer(): void
+  +arreter(): void
+}
+
+class Voiture {
+  - nombre_portes: int
+  +accelerer(): void
+}
+
+class Moto {
+  +accelerer(): void
+  +faire_des_acrobaties(): string
+}
+
+class VehiculeFactory {
+  +creer_vehicule(type_vehicule: str, *args, **kwargs): Vehicule
+}
+
+Vehicule <|-- Voiture
+Vehicule <|-- Moto
+VehiculeFactory --> Vehicule
+
+@enduml

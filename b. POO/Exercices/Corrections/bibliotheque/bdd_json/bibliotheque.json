@@ -1,0 +1,14 @@
+[
+    {
+        "titre": "robin",
+        "auteur": "hotton",
+        "annee_publication": "2023",
+        "disponible": true
+    },
+    {
+        "titre": "mai",
+        "auteur": "traore",
+        "annee_publication": "2023",
+        "disponible": true
+    }
+]
